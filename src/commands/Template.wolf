@@ -1,0 +1,20 @@
+const Chariot = require('chariot.js');
+
+class Command {
+    constructor() {
+        this.name = '';
+        this.aliases = [];
+        this.owner = false;
+    }
+
+    async execute(message, args, chariot) {
+        message.channel.createEmbed(new Chariot.RichEmbed()
+            .setColor('RED')
+            
+        );
+
+        Chariot.Logger.log(0, this.name.toUpperCase(), `${message.author.username} used the ${this.name} command!`);
+    }
+}
+
+module.exports = new Command();
