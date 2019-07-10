@@ -3,6 +3,10 @@ const WolfConstants = require('../constants/All');
 const Chariot = require('chariot.js');
 const TwitchPS = require('twitchps');
 
+/**
+ * Main bot class for WolfBot
+ * @extends Chariot#Client The bot client
+ */
 class WolfBot extends Chariot.Client {
     constructor() {
         super(
@@ -23,6 +27,9 @@ class WolfBot extends Chariot.Client {
         this._initialize();
     }
 
+    /**
+     * Run main initializer upon becoming fully ready, including setting playing title and calling the Twitch PubSub initializer
+     */
     _initialize() {
         this.on('ready', () => {
             this.announcementChannel = this.guilds.get(WolfConfig.guild).channels.get(WolfConfig.announcementChannel);
@@ -31,6 +38,9 @@ class WolfBot extends Chariot.Client {
         });
     }
 
+    /**
+     * Initialize Twitch PubSub listeners
+     */
     _initializeTwitchPubSub() {
         this.pubSub.on('connected', () => {
             this.logger.log(0, 'TWITCH PS', 'Successfully connected to Twitch PubSub services!');
