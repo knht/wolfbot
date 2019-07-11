@@ -84,7 +84,7 @@ class WolfBot extends Chariot.Client {
         });
 
         this.on('messageUpdate', (newMessage, oldMessage) => {
-            if (message.channel.guild.id !== WolfConfig.guild) return;
+            if (newMessage.channel.guild.id !== WolfConfig.guild) return;
             if (!newMessage.editedTimestamp) return;
 
             const notificationMessage = new Chariot.RichEmbed().setColor('RED').setTitle('Message Edit');
