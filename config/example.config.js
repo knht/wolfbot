@@ -3,6 +3,7 @@ module.exports = {
     
     twitchName: '',
     announcementChannel: '',
+    loggingChannel: '',
     guild: '',
     
     commandDir: `${__dirname}/../src/commands`,
